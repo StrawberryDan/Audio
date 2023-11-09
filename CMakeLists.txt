@@ -9,8 +9,6 @@ FetchContent_Declare(OPEN_AL_SOFT
     GIT_REPOSITORY https://github.com/kcat/openal-soft.git
     GIT_TAG 1.23.1)
 FetchContent_MakeAvailable(OPEN_AL_SOFT)
-FetchContent_GetProperties(OPEN_AL_SOFT SOURCE_DIR OPEN_AL_SOFT_SOURCE_DIR)
-FetchContent_GetProperties(OPEN_AL_SOFT BINARY_DIR OPEN_AL_SOFT_BINARY_DIR)
 
 
 # Find and add StraweberryCore
@@ -31,9 +29,7 @@ endif()
 
 add_library(StrawberryAudio STATIC
     src/Dummy.cpp)
-target_include_directories(StrawberryAudio PUBLIC ${OPEN_AL_SOFT_SOURCE_DIR}/include)
-target_link_directories(StrawberryAudio PUBLIC ${OPEN_AL_SOFT_BINARY_DIR})
-target_link_libraries(StrawberryAudio PUBLIC StrawberryCore StrawberryCodec OpenAl)
+target_link_libraries(StrawberryAudio PUBLIC StrawberryCore StrawberryCodec OpenAL::OpenAL)
 
 if (NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
     target_link_options(StrawberryAudio PRIVATE "-static")
