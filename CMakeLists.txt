@@ -30,7 +30,3 @@ endif()
 add_library(StrawberryAudio STATIC
     src/Dummy.cpp)
 target_link_libraries(StrawberryAudio PUBLIC StrawberryCore StrawberryCodec OpenAL::OpenAL)
-
-if (NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
-    target_link_options(StrawberryAudio PRIVATE "-static")
-endif()
