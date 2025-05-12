@@ -7,7 +7,7 @@ include(FetchContent)
 FetchContent_Declare(OPEN_AL_SOFT
 	EXCLUDE_FROM_ALL
 	GIT_REPOSITORY https://github.com/kcat/openal-soft.git
-	GIT_TAG 1.23.1)
+	GIT_TAG 1.24.3)
 FetchContent_MakeAvailable(OPEN_AL_SOFT)
 
 
